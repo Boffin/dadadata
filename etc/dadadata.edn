@@ -1,5 +1,6 @@
-{:ampq {:uri "localhost"
+{:amqp {:uri "localhost"
         :exchange "dadadata"
-        :routing-key "stocks"}
+        :routing-key "numbers"
+        :queue "dadadata"}
  :logger {:level :debug
           :output-file "log/debug.log"}}
