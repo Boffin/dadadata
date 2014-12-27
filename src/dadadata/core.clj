@@ -6,7 +6,9 @@
             [langohr.consumers :as lc]
             [langohr.basic :as lb]
             [taoensso.timbre :as log]
-            [clojure.tools.reader.edn :as edn]))
+            [clojure.tools.reader.edn :as edn]
+            [clojure-csv.core :as csv]
+            ))
 
 
 (defn make-publisher [connection exchange routing-key]
@@ -39,8 +41,16 @@
   ([] (-main "etc/dadadata.edn"))
   ([config-file]
    (def config (edn/read-string (slurp config-file)))
-   (publish (config :amqp) "aaaaaaaaaaaa")
-   (consume ((config :amqp) :queue))))
+   (let [data (csv/parse-csv (slurp (config :sample-data)))
+         fields (first data)
+         samples (rest data)]
+     (def ddd fields)
+     (def xxx samples))
+   ;;(def data (csv/parse-csv (slurp (config :sample-data))))
+   ;;(publish (config :amqp) "aaaaaaaaaaaa")
+   ;;(consume ((config :amqp) :queue))
+   ;;(def data (csv/reader-csv (slurp (config :sample-data))))
+  ))
 
 (-main)
 

@@ -3,4 +3,5 @@
         :routing-key "numbers"
         :queue "dadadata"}
  :logger {:level :debug
-          :output-file "log/debug.log"}}
+          :output-file "log/debug.log"}
+ :sample-data "data/sample.txt"}
