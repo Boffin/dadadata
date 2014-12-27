@@ -1,0 +1,5 @@
+{:ampq {:uri "localhost"
+        :exchange "dadadata"
+        :routing-key "stocks"}
+ :logger {:level :debug
+          :output-file "log/debug.log"}}

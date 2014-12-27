@@ -7,6 +7,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [com.taoensso/timbre "3.2.1"]
                  [com.stuartsierra/component "0.2.2"]
-                 [com.datomic/datomic-pro "0.9.5067"]]
+                 [com.datomic/datomic-pro "0.9.5067" :exclusions [joda-time]]
+                 [com.novemberain/langohr "3.0.1"]]
   :main dadadata.core)
