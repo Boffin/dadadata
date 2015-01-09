@@ -8,30 +8,37 @@
   :db.install/_attribute :db.part/db}
 
  {:db/id           #db/id[:db.part/db]
-  :db/ident        :stock/open
+  :db/ident        :price/open
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "Open price"
   :db.install/_attribute :db.part/db}
 
-  {:db/id           #db/id[:db.part/db]
-  :db/ident        :stock/close
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :price/close
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "Close price"
   :db.install/_attribute :db.part/db}
 
-  {:db/id           #db/id[:db.part/db]
-  :db/ident        :stock/high
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :price/high
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "High price"
   :db.install/_attribute :db.part/db}
 
-  {:db/id           #db/id[:db.part/db]
-  :db/ident        :stock/low
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :price/low
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "Low price"
   :db.install/_attribute :db.part/db}
-]
+
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :price/time
+  :db/valueType    :db.type/instant
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "Time of price"
+  :db.install/_attribute :db.part/db}
+ ]
