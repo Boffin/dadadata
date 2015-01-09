@@ -8,37 +8,44 @@
   :db.install/_attribute :db.part/db}
 
  {:db/id           #db/id[:db.part/db]
-  :db/ident        :price/open
+  :db/ident        :tick/open
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "Open price"
   :db.install/_attribute :db.part/db}
 
  {:db/id           #db/id[:db.part/db]
-  :db/ident        :price/close
+  :db/ident        :tick/close
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "Close price"
   :db.install/_attribute :db.part/db}
 
  {:db/id           #db/id[:db.part/db]
-  :db/ident        :price/high
+  :db/ident        :tick/high
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "High price"
   :db.install/_attribute :db.part/db}
 
  {:db/id           #db/id[:db.part/db]
-  :db/ident        :price/low
+  :db/ident        :tick/low
   :db/valueType    :db.type/float
   :db/cardinality  :db.cardinality/one
   :db/doc          "Low price"
   :db.install/_attribute :db.part/db}
 
  {:db/id           #db/id[:db.part/db]
-  :db/ident        :price/time
+  :db/ident        :tick/volume
+  :db/valueType    :db.type/bigint
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "Volume of stocks"
+  :db.install/_attribute :db.part/db}
+
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :tick/time
   :db/valueType    :db.type/instant
   :db/cardinality  :db.cardinality/one
-  :db/doc          "Time of price"
+  :db/doc          "Time of tick"
   :db.install/_attribute :db.part/db}
  ]
