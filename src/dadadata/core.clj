@@ -41,6 +41,17 @@
   (let [conn (d/connect uri)
         schema-tx (read-string (slurp "etc/datomic-schema.edn"))]
     @(d/transact conn schema-tx)
+    )
+  )
+
+
+(defn data-load
+  [file]
+  (let [data (csv/parse-csv (slurp file))
+        names (first data)
+        records (rest data)]
+    (def names names)
+    (def records records)
   )
 )
 
@@ -51,4 +62,4 @@
   ([config-file]
    (def config (edn/read-string (slurp config-file)))
    (get-in config [:datomic :uri])
-))
+   ))
