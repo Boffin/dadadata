@@ -1,4 +1,5 @@
 [
+ ;; Stock
  {:db/id           #db/id[:db.part/db]
   :db/ident        :stock/sym
   :db/valueType    :db.type/string
@@ -7,6 +8,8 @@
   :db/unique       :db.unique/identity
   :db.install/_attribute :db.part/db}
 
+
+ ;; Tick
  {:db/id           #db/id[:db.part/db]
   :db/ident        :tick/open
   :db/valueType    :db.type/float
