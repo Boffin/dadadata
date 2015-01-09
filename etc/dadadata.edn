@@ -2,6 +2,10 @@
         :exchange "dadadata"
         :routing-key "numbers"
         :queue "dadadata"}
+
  :logger {:level :debug
           :output-file "log/debug.log"}
+
+ :datomic {:uri "datomic:dev://localhost:23456/dadadata1"}
+
  :sample-data "data/sample.txt"}

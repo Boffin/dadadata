@@ -1,0 +1,37 @@
+[
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :stock/sym
+  :db/valueType    :db.type/string
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "Symbol of stock"
+  :db/unique       :db.unique/identity
+  :db.install/_attribute :db.part/db}
+
+ {:db/id           #db/id[:db.part/db]
+  :db/ident        :stock/open
+  :db/valueType    :db.type/float
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "Open price"
+  :db.install/_attribute :db.part/db}
+
+  {:db/id           #db/id[:db.part/db]
+  :db/ident        :stock/close
+  :db/valueType    :db.type/float
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "Close price"
+  :db.install/_attribute :db.part/db}
+
+  {:db/id           #db/id[:db.part/db]
+  :db/ident        :stock/high
+  :db/valueType    :db.type/float
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "High price"
+  :db.install/_attribute :db.part/db}
+
+  {:db/id           #db/id[:db.part/db]
+  :db/ident        :stock/low
+  :db/valueType    :db.type/float
+  :db/cardinality  :db.cardinality/one
+  :db/doc          "Low price"
+  :db.install/_attribute :db.part/db}
+]
