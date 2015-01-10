@@ -40,7 +40,7 @@
 
  {:db/id           #db/id[:db.part/db]
   :db/ident        :tick/volume
-  :db/valueType    :db.type/bigint
+  :db/valueType    :db.type/long
   :db/cardinality  :db.cardinality/one
   :db/doc          "Volume of stocks"
   :db.install/_attribute :db.part/db}

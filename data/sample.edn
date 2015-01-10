@@ -1,0 +1,19 @@
+[
+ {:db/id        #db/id[:db.part/user]
+  :stock/sym    "NASDAQ:AAPLP"
+  :tick/open    101.81
+  :tick/close    101.78
+  :tick/high      101.87
+  :tick/low      101.69
+  :tick/volume  1063311
+  :tick/time    #inst "2014-08-25T09:30:00.000-00:00"}
+
+ {:db/id        #db/id[:db.part/user]
+  :stock/sym    "NASDAQ:AAPLP"
+  :tick/open    101.76
+  :tick/close    101.83
+  :tick/high    101.88
+  :tick/low      101.76
+  :tick/volume  363858
+  :tick/time    #inst "2014-08-25T09:31:00.000-00:00"}
+ ]

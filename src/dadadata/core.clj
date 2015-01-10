@@ -3,34 +3,15 @@
   (:require [taoensso.timbre :as log]
             [clojure.tools.reader.edn :as edn]
             [clojure-csv.core :as csv]
+            [clj-time.core :as t]
+            [clj-time.format :as tf]
             [datomic.api :as d]
             ))
 
-;; (defn make-publisher [connection exchange routing-key]
-;;   (let [channel (lch/open connection)]
-;;     (fn [message]
-;;       (if (lch/open? channel)
-;;         (do
-;;           (lb/publish channel exchange routing-key message))
-;;         (log/error "channel is closed")))))
 
-;; (defn make-consumer [connection queue]
-;;   (let [channel (lch/open connection)]
-;;     (fn []
-;;       (if (lch/open? channel)
-;;         (do
-;;           (lb/get channel queue))
-;;         (log/error "channel is closed")))))
 
-;; (defn publish [amqp-config message]
-;;   (let [connection (rmq/connect)
-;;         publisher (make-publisher connection (amqp-config :exchange) (amqp-config :routing-key))]
-;;     (publisher message)))
-
-;; (defn consume [queue]
-;;   (let [connection (rmq/connect)
-;;         consumer (make-consumer connection queue)]
-;;     (consumer)))
+;; Define the DB's uri globally until I'll have something better
+(def uri "datomic:dev://localhost:23456/dadadata1")
 
 
 
@@ -45,15 +26,39 @@
   )
 
 
+;; Perform transactions from file
+(defn datomic-edn-transact
+  [file]
+  (let [conn (d/connect uri)
+        tx (read-string (slurp file))]
+    (doseq [item tx]
+      @(d/transact conn (list item)))))
+
+
+
+;; :tick/time format from sample CSV format
+;; Expects `08/25/2014 0930` format
+(defn format-time
+  [d t]
+  (tf/parse (tf/formatter "MM/dd/yyyy hhmm") (str d " " t)))
+
+;; Performs single datomic transaction
+(defn datomic-transaction
+  [tx]
+  (let [conn (d/connect uri)]
+    @(d/transact conn (list tx))))
+
+
+;; Load CSVs data from file into datomic
 (defn data-load
   [file]
   (let [data (csv/parse-csv (slurp file))
         names (first data)
         records (rest data)]
-    (def names names)
-    (def records records)
+    (doseq [r records]
+      (println r))
+    )
   )
-)
 
 
 

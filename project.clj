@@ -10,6 +10,7 @@
                  [clojure-csv/clojure-csv "2.0.1"]
                  [com.taoensso/timbre "3.2.1"]
                  [com.stuartsierra/component "0.2.2"]
+                 [clj-time "0.9.0"]
                  [com.datomic/datomic-pro "0.9.5067" :exclusions [joda-time]]
                  [com.novemberain/langohr "3.0.1"]]
   :main dadadata.core)
